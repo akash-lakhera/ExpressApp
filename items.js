@@ -1,0 +1,1 @@
+module.exports=[{name:"apples",price:10},{name:"bananas",price:20},{name:"oranges",price:30},{name:"mangoes",price:5}]
