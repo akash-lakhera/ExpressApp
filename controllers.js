@@ -6,7 +6,7 @@ const getAllItems = async (req, res, next) => {
   try {
     const items = await col.find({}).toArray();
    
-    res.status(200).send(items);
+    res.status(200).json(items);
   } catch (error) {
     console.log("An error occurred in getting items from database : " + error);
   }
@@ -22,7 +22,7 @@ const getParticularItem = async (req, res, next) => {
         res.status(404).send("Item does not exist")
     }
     else
-    res.status(200).send(items);
+    res.status(200).json(items);
   } catch (error) {
     console.log(error);
     error.name?BSONError:res.status(404).send("Item does not exist")

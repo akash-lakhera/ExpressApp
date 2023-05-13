@@ -12,13 +12,13 @@ beforeEach(async () => {
   afterEach(async () => {
     await con.close();
   });
-const obId="replace with objext id" //replace with object id
+const obId="645fcdd53c7c34d2fccb8683" //replace with object id
   //tests
   describe("GET /items", () => {
     it("should return all items", async () => {
       const res = await request(app).get("/items");
       expect(res.statusCode).toBe(200);
-      expect(res.body.length).toBe(4)
+      expect(res.body.length).toBe(24)
     });
   });
 
@@ -32,7 +32,9 @@ const obId="replace with objext id" //replace with object id
 
   describe("GET /items/", () => {
     it("should modify one item", async () => {
-      const res = await request(app).patch(`/items/${obId}`);
+      const res = await request(app).patch(`/items/${obId}`).send({
+        price: 105
+      });
       expect(res.statusCode).toBe(200);
       expect(res.body.modifiedCount).toBe(1)
     });
